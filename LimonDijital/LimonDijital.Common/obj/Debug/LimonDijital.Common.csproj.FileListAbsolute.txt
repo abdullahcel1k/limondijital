@@ -1,0 +1,17 @@
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Common\bin\Debug\LimonDijital.Common.dll
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Common\bin\Debug\LimonDijital.Common.pdb
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Common\obj\Debug\LimonDijital.Common.csprojResolveAssemblyReference.cache
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Common\obj\Debug\LimonDijital.Common.csproj.CoreCompileInputs.cache
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Common\obj\Debug\LimonDijital.Common.dll
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Common\obj\Debug\LimonDijital.Common.pdb
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Common\bin\Debug\Mail.dll
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Common\bin\Debug\Mail.xml
+D:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Common\bin\Debug\LimonDijital.Common.dll
+D:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Common\bin\Debug\LimonDijital.Common.pdb
+D:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Common\bin\Debug\Mail.dll
+D:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Common\bin\Debug\Mail.xml
+D:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Common\obj\Debug\LimonDijital.Common.csprojAssemblyReference.cache
+D:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Common\obj\Debug\LimonDijital.Common.csproj.CoreCompileInputs.cache
+D:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Common\obj\Debug\LimonDijital.Common.csproj.CopyComplete
+D:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Common\obj\Debug\LimonDijital.Common.dll
+D:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Common\obj\Debug\LimonDijital.Common.pdb

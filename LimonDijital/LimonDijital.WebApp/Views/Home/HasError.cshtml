@@ -1,0 +1,48 @@
+﻿@{
+	Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Hata Oluştu</title>
+	<link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+</head>
+<body>
+	<div class="jumbotron vertical-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					@{
+						Exception ex = null;
+						if (TempData["LastError"] != null)
+						{
+							ex = TempData["LastError"] as Exception;
+						}
+					}
+					<h1><span class="glyphicon glyphicon-remove"></span> Hata Oluştu</h1>
+
+					<p>
+						Hata oluştu, lütfen site yöneticisi ile iletişime geçiniz.
+						<small>Aşağıda çıkan hata mesajını kopyalayıp mail atarsanız memnun oluruz, yardımınız için teşekkürler.</small>
+						<br /><br /><br />
+						@if (ex != null)
+						{
+							<strong>Hata Detay : </strong>
+							@ex.Message
+							<br /><br /><br />
+						}
+						@Bootstrap.LinkButton("/Home", "default", "", "", "home", " Anasayfaya Dön!")
+						@Bootstrap.LinkButton("mailto:info@limondijital.com", "primary", "", "", "envelope", " E-Posta Gönder")
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,341 @@
+﻿@using LimonDijital.Entities.ValueObjects
+@using System.Web.Optimization
+@model HomePageViewModel
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@Model.limonSiteInfo.SiteTitle</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Limon Dijital olarak İstanbul bayrampaşada yıllardır müşterilerine kaliteli
+		hizmet anlayışı, destek hizmeti ve güleryüzlü personelleri ile hizmet etmekteyiz." />
+	<meta name="keywords" content="@Model.limonSiteInfo.SiteKeywords" />
+	<meta name="author" content="Abdullah ÇELİK" />
+
+	@Styles.Render("~/css/webcss")
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	@Scripts.Render("~/js/webjs")
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+	<div class="gtco-loader"></div>
+
+	<div id="page">
+		<nav class="gtco-nav" role="navigation">
+			<div class="gtco-container">
+				<div class="row">
+					<div class="col-sm-2 col-xs-12">
+						<div id="gtco-logo"><a href="/"><img src="~/images/logo1.jpg" width="100"/></a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1 main-nav">
+						<ul>
+							<li class="active"><a href="#" data-nav-section="home">Anasayfa</a></li>
+							<li><a href="#" data-nav-section="services">Hizmetlerimiz</a></li>
+							<li><a href="#" data-nav-section="portfolio">Portföy</a></li>
+							<li><a href="#" data-nav-section="referance">Referanslarımız</a></li>
+							<li><a href="#" data-nav-section="contact">İletişim</a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</nav>
+		<div id="gtco-hero" class="js-fullheight" data-section="home">
+			<div class="flexslider js-fullheight">
+				<ul class="slides">
+					@foreach (var item in Model.limonSliders)
+			{
+						<li style="@("background-image: url(/images"+item.SliderImageFilename+")")">
+						</li>
+					}
+				</ul>
+			</div>
+		</div>
+		<div class="gtco-section-overflow">
+			<div class="gtco-section" id="gtco-services" data-section="services">
+				<div class="gtco-container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="gtco-heading">
+								<h2 class="gtco-left">Hizmetlerimiz</h2>
+								<p>
+									@Model.limonSiteInfo.HomeServiceText
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						@foreach (var services in Model.limonServices)
+	{
+							<div class="col-md-6 animate-box" data-animate-effect="fadeIn">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="feature-left">
+											<span class="icon">
+												<i class="fa fa-cogs"></i>
+											</span>
+											<div class="feature-copy">
+												<h3>@services.Name</h3>
+												<p>@services.Description</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						}
+					</div>
+				</div>
+			</div>
+			<div class="gtco-section" id="gtco-portfolio" data-section="portfolio">
+				<div class="gtco-container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+							<h2>Portföy</h2>
+							<p>
+								@Model.limonSiteInfo.HomePortofiloText
+							</p>
+						</div>
+					</div>
+					<div class="row">
+						@foreach (var portofilos in Model.limonPortofilos)
+	{
+							<div class="col-md-4">
+								<a href="@("/images" + portofilos.PortofiloImageFilaname)" class="gtco-card-item image-popup" title="@portofilos.Name">
+									<figure>
+										<div class="overlay"><i class="ti-plus"></i></div>
+										<img src="@("/images" + portofilos.PortofiloImageFilaname)" alt="Image" class="img-responsive">
+									</figure>
+								</a>
+							</div>
+						}
+					</div>
+				</div>
+			</div>
+			<div class="gtco-section" id="gtco-faq" data-section="faq">
+				<div class="gtco-container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+							<h2>Merak edebileceğiniz bazı sorular</h2>
+							<p>
+								@Model.limonSiteInfo.HomeQuestionText
+							</p>
+						</div>
+					</div>
+					<div class="row">
+						@foreach (var question in Model.limonQuestions)
+	{
+							<div class="col-md-6 col-lg-6 col-sm-6">
+								<div class="gtco-accordion">
+									<div class="gtco-accordion-heading">
+										<div class="icon"><i class="icon-cross"></i></div>
+										<h3>@question.Title</h3>
+									</div>
+									<div class="gtco-accordion-content">
+										<div class="inner">
+											<p>@question.Text</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="gtco-section-overflow">
+			<div id="gtco-products" data-section="referance">
+				<div class="gtco-container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+							<h2>Referanslarımız</h2>
+							<p>
+								@Model.limonSiteInfo.HomeReferenceText
+							</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="owl-carousel owl-carousel-carousel">
+							@foreach (var reference in Model.limonReferences)
+	{
+								<div class="item">
+									<img src="@("/images"+reference.ReferencesImageFilename)" alt="@reference.Name">
+								</div>
+							}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="gtco-contact" data-section="contact" class="gtco-cover gtco-cover-xs">
+			<div class="gtco-container">
+				<div class="row text-center">
+					<div class="row">
+						<br />
+						<h1>İletişim</h1>
+						<hr />
+						<div class="col-lg-6 col-md-6 col-md-6">
+							<iframe width="100%" height="420" frameborder="0" style="border:0" src="@Model.limonSiteInfo.MapSrc" allowfullscreen></iframe>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-12">
+							@* buraya form gelecek*@
+							<form action="" method="POST" id="register" role="form">
+								<div class="form-group">
+									<input type="text" class="form-control" id="contactname" name="nm" placeholder="İsminiz" required="">
+								</div>
+
+
+								<div class="form-group form_left">
+									<input type="email" class="form-control" id="contactemail" name="em" placeholder="Size ulaşabileceğimiz bir mail adresi" required="">
+								</div>
+
+								<div class="form-group">
+									<input type="tel" class="form-control" id="contactphone" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="15" placeholder="Size ulaşabileceğimiz bir telefon numarası" required="">
+								</div>
+								<div class="form-group">
+									<textarea class="form-control textarea-contact" rows="5" id="contactcomment" name="FB" placeholder="İletmek istediğiniz mesajınız.." required=""></textarea>
+									<br>
+									<button class="btn btn-default btn-send pull-left" id="btniletisim"> <span class="fa fa-paper-plane"></span> Gönder</button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<!-- Boxes de Acoes -->
+						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+							<div class="box">
+								<div class="icon">
+									<div class="image"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+									<div class="info">
+										<h3 class="title" style="color:black;">MAIL & WEBSITE</h3>
+										<p>
+											<i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:'@Model.limonSiteInfo.Mail1'">&nbsp;@Model.limonSiteInfo.Mail1</a>
+											<br>
+											<br>
+											@if (string.IsNullOrEmpty(Model.limonSiteInfo.Mail2))
+											{
+											}
+											else
+											{
+												<i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:'@Model.limonSiteInfo.Mail2'">&nbsp;@Model.limonSiteInfo.Mail2</a>
+											}
+										</p>
+
+									</div>
+								</div>
+								<div class="space"></div>
+							</div>
+						</div>
+
+						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+							<div class="box">
+								<div class="icon">
+									<div class="image"><i class="fa fa-mobile" aria-hidden="true"></i></div>
+									<div class="info">
+										<h3 class="title" style="color:black;">İLETİŞİM</h3>
+										<p>
+											<i class="fa fa-mobile" aria-hidden="true"></i><a href="tel:@Model.limonSiteInfo.Phone1">&nbsp;@Model.limonSiteInfo.Phone1</a>
+											<br>
+											<br>
+											@if (string.IsNullOrEmpty(Model.limonSiteInfo.Phone2))
+											{
+											}
+											else
+											{
+												<i class="fa fa-mobile" aria-hidden="true"></i> <a href="tel:@Model.limonSiteInfo.Phone2">&nbsp;@Model.limonSiteInfo.Phone2</a>
+											}
+										</p>
+									</div>
+								</div>
+								<div class="space"></div>
+							</div>
+						</div>
+
+						<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+							<div class="box">
+								<div class="icon">
+									<div class="image"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+									<div class="info">
+										<h3 class="title" style="color:black;">ADRES</h3>
+										<p>
+											<i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp @Model.limonSiteInfo.Address
+										</p>
+									</div>
+								</div>
+								<div class="space"></div>
+							</div>
+						</div>
+						<!-- /Boxes de Acoes -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer id="gtco-footer" class="fixed-buttom">
+			<div class="gtco-container">
+
+				<div class="row copyright">
+					<div class="col-md-12">
+						<p class="pull-left">
+							<small class="block">&copy; @DateTime.Now.Year Limon Dijital.</small>
+							<small class="block">Designed by <a href="http://abdullahcelik.com.tr" target="_blank">ABDULLAH ÇELİK</a></small>
+						</p>
+						<p class="pull-right">
+							<ul class="gtco-social-icons pull-right">
+								<li><a href="@Model.limonSiteInfo.TwitterProfile" target="_blank"><i class="icon-twitter"></i></a></li>
+								<li><a href="@Model.limonSiteInfo.FacebookProfile" target="_blank"><i class="icon-facebook"></i></a></li>
+								<li><a href="@Model.limonSiteInfo.LinkedinProfile" target="_blank"><i class="icon-linkedin"></i></a></li>
+							</ul>
+						</p>
+					</div>
+				</div>
+
+			</div>
+		</footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>
+
+	<script>
+		$("#register").submit(function (e) {
+			//---------------^---------------
+			e.preventDefault();
+			var name = $('#contactname').val(),
+				email = $('#contactemail').val(),
+				phone = $('#contactphone').val(),
+				mesaj = $('#contactcomment').val();
+			$.ajax({
+				type: "POST",
+				url: "/Home/Contact",
+				data: { 'name': name, 'email': email, 'phone': phone, 'mesaj': mesaj }
+			}).done(function (data) {
+				$('input,textarea').val('');
+				if (data.hasError) {
+					alertify.error("Merhaba " + data.name + " mailin bize ulaşırken hata ile karşılaşıldı hata:" + data.errorMessage);
+				} else {
+					alertify.success("Merhaba " + data.name + " mailin bize başarı ile ulaştı , kısa zaman içerisinde geri dönüş yapacağız. İyi çalışmalar.");
+				}
+			}).fail(function () {
+				alertify.error("Sunucu ile bağlantı kurulamadı.");
+			})
+
+		});
+		
+	</script>
+</body>
+</html>

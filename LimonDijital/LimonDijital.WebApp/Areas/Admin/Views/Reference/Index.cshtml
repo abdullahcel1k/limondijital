@@ -1,0 +1,61 @@
+﻿@model IEnumerable<LimonDijital.Entities.LimonReference>
+
+@{
+    ViewBag.Title = "Index";
+}
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+			Referans Listesi
+		</h1>
+		<ol class="breadcrumb">
+			<li>
+				<i class="fa fa-handshake-o"></i>  <a href="/Admin/Reference">Referanslar</a>
+			</li>
+			<li class="active">
+				<i class="fa fa-list"></i> Referans Listesi
+			</li>
+		</ol>
+	</div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+	<div class="col-md-12">
+		<p>
+			<a href="/Admin/Reference/Create" class="btn btn-primary">
+				<span class="glyphicon glyphicon-plus"></span> Yeni Referans Ekle
+			</a>
+		</p>
+		<div class="table-responsive">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th width="150">
+							@Html.DisplayNameFor(model => model.Name)
+						</th>
+						<th width="100"></th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var item in Model)
+					{
+						<tr>
+							<td>
+								@Html.DisplayFor(modelItem => item.Name)
+							</td>
+							<td>
+								@Bootstrap.LinkButton("/Admin/Reference/Edit/" + @item.Id, "warning", "btn-xs", "Edit", "edit", string.Empty)
+
+								@Bootstrap.LinkButton("/Admin/Reference/Details/" + @item.Id, "info", "btn-xs", "Details", "search", string.Empty)
+
+								@Bootstrap.LinkButton("/Admin/Reference/Delete/" + @item.Id, "danger", "btn-xs", "Delete", "trash", string.Empty)
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

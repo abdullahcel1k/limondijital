@@ -1,0 +1,112 @@
+﻿@model LimonDijital.Entities.LimonUser
+
+@{
+    ViewBag.Title = "Kullanıcı Detayları";
+}
+
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+			Kullanıcı Detay
+		</h1>
+		<ol class="breadcrumb">
+			<li>
+				<i class="fa fa-user-circle"></i>  <a href="/Admin/User">Kullanıcılar</a>
+			</li>
+			<li class="active">
+				<i class="fa fa-info-circle"></i> Kullanıcı Detay
+			</li>
+		</ol>
+	</div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-1">
+		<dl class="dl-horizontal">
+			<dt>
+				Resim
+			</dt>
+			<dd>
+				<img src="@Url.Content("~/images/"+Model.ProfileImageFilename)" height="150" width="150" />
+			</dd>
+			<dt>
+				@Html.DisplayNameFor(model => model.Name)
+				&nbsp;
+				@Html.DisplayNameFor(model => model.Surname)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.Name)
+				&nbsp;
+				@Html.DisplayFor(model => model.Surname)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.Username)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.Username)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.Email)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.Email)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.IsActive)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.IsActive)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.IsAdmin)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.IsAdmin)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.CreatedOn)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.CreatedOn)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.ModifiedOn)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.ModifiedOn)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.ModifiedUsername)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.ModifiedUsername)
+			</dd>
+
+		</dl>
+	</div>
+	<div class="col-sm-6 col-sm-offset-1">
+		@using (Html.BeginForm())
+		{
+			@Html.AntiForgeryToken()
+			@Bootstrap.LinkButton("/Admin/User/Edit/" + Model.Id, "warning", "", "Edit", "edit", " Düzenle")
+			@Bootstrap.LinkButton("/Admin/User", "default", "", "Back to list", "arrow-left", " Listeye Geri Dön")
+		}
+	</div>
+</div>

@@ -1,0 +1,72 @@
+﻿@model LimonDijital.Entities.LimonPortofilo
+
+@{
+    ViewBag.Title = "Portföy Düzenle";
+}
+
+<link href="~/Content/validation-summary.css" rel="stylesheet" />
+
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+			Portföy Düzenle
+		</h1>
+		<ol class="breadcrumb">
+			<li>
+				<i class="fa fa-briefcase"></i>  <a href="/Admin/Portofilo">Portföyler</a>
+			</li>
+			<li class="active">
+				<i class="fa fa-edit"></i> Portföy Düzenle
+			</li>
+		</ol>
+	</div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-1">
+		@using (Html.BeginForm("Edit", "Portofilo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+		{
+			@Html.AntiForgeryToken()
+
+			<div class="form-horizontal">
+				@Html.ValidationSummary(false, null, htmlAttributes: new { @class = "col-sm-offset-4 col-sm-8" })
+
+				<div class="form-group">
+					<div class="col-sm-8 col-sm-offset-4">
+						<img src="@Url.Content("~/images/"+Model.PortofiloImageFilaname)" height="150" width="150" />
+						@Html.HiddenFor(model => Model.PortofiloImageFilaname)
+					</div>
+					<label class="control-label col-sm-4">Resim</label>
+					<div class="col-sm-8">
+						<input type="file" name="PortofiloImage" id="PortofiloImage" class="form-control" /><br />
+						<span class="glyphicon glyphicon-info-sign">&nbsp;</span>
+						<span><i>Lütfen jpg, jpeg yada png formatı kullanın.</i></span>
+					</div>
+				</div>
+
+				<div class="form-group">
+					@Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-sm-4" })
+					<div class="col-sm-8">
+						@Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+					</div>
+				</div>
+
+				<div class="form-group">
+					@Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-sm-4" })
+					<div class="col-sm-8">
+						@Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-offset-4 col-sm-8">
+						@Bootstrap.Button("success", "", "submit", "floppy-o", " Kaydet")
+						@Bootstrap.LinkButton("/Admin/Portofilo", "default", "", "Back to list", "arrow-left", " Listeye Geri Dön")
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+</div>

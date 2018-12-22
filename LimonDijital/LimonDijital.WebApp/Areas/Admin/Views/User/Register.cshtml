@@ -1,0 +1,63 @@
+﻿@using LimonDijital.Entities.ValueObjects
+@model RegisterViewModel
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Admin Page | Login</title>
+
+	<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/Content/validation-summary.css" rel="stylesheet" />
+	<link href="~/Content/login-register.css" rel="stylesheet" />
+	<link href="~/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+	<div>
+		@using (Html.BeginForm())
+		{
+			<section class="login-info">
+				<div class="container">
+					<div class="row main">
+						<div class="form-header">
+							<h1 class="text-center ">Kayıt Formu</h1>
+						</div>
+						<div class="main-content">
+
+							@Html.ValidationSummary(false)
+
+							<div class="input-group ">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+								@Html.TextBoxFor(model => model.Username, new { @class = "form-control", placeholder = "Kullanıcı adınız." })
+							</div>
+							<div class="input-group ">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
+								@Html.TextBoxFor(model => model.EMail, new { @class = "form-control", placeholder = "E-posta adresiniz." })
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+								@Html.TextBoxFor(model => model.Password, new { @class = "form-control", placeholder = "Şifrenizi girin..", type = "password" })
+							</div>
+							<div class="input-group">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+								@Html.TextBoxFor(model => model.RePassword, new { @class = "form-control", placeholder = "Şifreyi tekrar giriniz.", type = "password" })
+							</div>
+
+							<div class="form-group ">
+								<button type="submit" class="btn btn-danger btn-lg btn-block login-button">Kayıt Ol</button>
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+			</section>
+		}
+	</div>
+</body>
+</html>

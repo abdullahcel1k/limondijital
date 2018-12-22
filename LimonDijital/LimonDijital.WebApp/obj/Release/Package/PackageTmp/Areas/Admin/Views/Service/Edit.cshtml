@@ -1,0 +1,60 @@
+﻿@using LimonDijital.WebApp
+@model LimonDijital.Entities.LimonService
+
+@{
+	ViewBag.Title = "Hizmet Düzenle";
+}
+
+<link href="~/Content/validation-summary.css" rel="stylesheet" />
+
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+			Hizmet Düzenle
+		</h1>
+		<ol class="breadcrumb">
+			<li>
+				<i class="fa fa-cogs"></i>  <a href="/Admin/Service">Hizmetler</a>
+			</li>
+			<li class="active">
+				<i class="fa fa-edit"></i> Hizmet Düzenle
+			</li>
+		</ol>
+	</div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-1">
+		@using (Html.BeginForm())
+		{
+			@Html.AntiForgeryToken()
+
+			<div class="form-horizontal">
+				@Html.ValidationSummary(false)
+
+				<div class="form-group">
+					@Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-3" })
+					<div class="col-md-9">
+						@Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+					</div>
+				</div>
+
+				<div class="form-group">
+					@Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-3" })
+					<div class="col-md-9">
+						@Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-md-offset-3 col-md-9">
+						@Bootstrap.Button("success", string.Empty, "submit", "floppy-o", " Kaydet")
+						@Bootstrap.LinkButton("/Admin/Service", "default", "", "", "arrow-left", " Listeye Geri Dön")
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+</div>

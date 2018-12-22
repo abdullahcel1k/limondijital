@@ -1,0 +1,6 @@
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Core\bin\Release\LimonDijital.Core.dll
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Core\bin\Release\LimonDijital.Core.pdb
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Core\obj\Release\LimonDijital.Core.csprojResolveAssemblyReference.cache
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Core\obj\Release\LimonDijital.Core.csproj.CoreCompileInputs.cache
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Core\obj\Release\LimonDijital.Core.dll
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Core\obj\Release\LimonDijital.Core.pdb

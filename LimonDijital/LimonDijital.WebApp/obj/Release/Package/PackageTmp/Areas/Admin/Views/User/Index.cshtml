@@ -1,0 +1,90 @@
+﻿@model IEnumerable<LimonDijital.Entities.LimonUser>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+			Kullanıcı Listesi
+		</h1>
+		<ol class="breadcrumb">
+			<li>
+				<i class="fa fa-user-circle"></i>  <a href="/Admin/User">Kullanıcılar</a>
+			</li>
+			<li class="active">
+				<i class="fa fa-list"></i> Kullanıcı Listesi
+			</li>
+		</ol>
+	</div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+	<div class="col-md-12">
+		<p>
+			<a href="/Admin/User/Create" class="btn btn-primary">
+				<span class="glyphicon glyphicon-plus"></span> Yeni Kullanıcı Ekle
+			</a>
+		</p>
+		<div class="table-responsive">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th width="150">
+							@Html.DisplayNameFor(model => model.Name)
+								&nbsp;
+							@Html.DisplayNameFor(model => model.Surname)
+						</th>
+						<th>
+							@Html.DisplayNameFor(model => model.Username)
+						</th>
+						<th>
+							@Html.DisplayNameFor(model => model.Email)
+						</th>
+						<th>
+							@Html.DisplayNameFor(model => model.IsActive)
+						</th>
+						<th>
+							@Html.DisplayNameFor(model => model.IsAdmin)
+						</th>
+						<th width="100"></th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var item in Model)
+					{
+						<tr>
+							<td>
+								@Html.DisplayFor(modelItem => item.Name)
+								&nbsp;
+								@Html.DisplayFor(modelItem => item.Surname)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Username)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Email)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.IsActive)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.IsAdmin)
+							</td>
+							<td>
+								@Bootstrap.LinkButton("/Admin/User/Edit/" + @item.Id, "warning", "btn-xs", "Edit", "edit", string.Empty)
+
+								@Bootstrap.LinkButton("/Admin/User/Details/" + @item.Id, "info", "btn-xs", "Details", "search", string.Empty)
+
+								@Bootstrap.LinkButton("/Admin/User/Delete/" + @item.Id, "danger", "btn-xs", "Delete", "trash", string.Empty)
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

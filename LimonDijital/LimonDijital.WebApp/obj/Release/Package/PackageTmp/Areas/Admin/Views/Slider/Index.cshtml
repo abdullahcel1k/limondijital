@@ -1,0 +1,52 @@
+﻿@model IEnumerable<LimonDijital.Entities.LimonSlider>
+
+@{
+	ViewBag.Title = "Sliderlar";
+}
+
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+			Slider Listesi
+		</h1>
+		<ol class="breadcrumb">
+			<li>
+				<i class="fa fa-slideshare"></i>  <a href="/Admin/Slider">Sliderlar</a>
+			</li>
+			<li class="active">
+				<i class="fa fa-list"></i> Slider Listesi
+			</li>
+		</ol>
+	</div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+	<div class="col-md-12">
+		<p>
+			<a href="/Admin/Slider/Create" class="btn btn-primary">
+				<span class="glyphicon glyphicon-plus"></span> Yeni Slider Ekle
+			</a>
+		</p>
+
+		<div class="row">
+			@foreach (var item in Model)
+			{
+
+				<div class="col-lg-4 col-sm-6">
+					<div class="thumbnail">
+						<img class="slideimg" src="@Url.Content("~/images/"+item.SliderImageFilename)" />
+						<h4>@item.Text</h4>
+						<a href="/Admin/Slider/Edit/@item.Id" class="btn btn-warning pull-right slideedit" title="Edit">
+							<span class="fa fa-edit"></span>
+						</a>
+
+						@Bootstrap.LinkButton("/Admin/Slider/Delete/" + @item.Id, "danger", " pull-right slidedelete", "Delete", "trash", string.Empty)
+					</div>
+				</div>
+
+			}
+		</div>
+	</div>
+</div>

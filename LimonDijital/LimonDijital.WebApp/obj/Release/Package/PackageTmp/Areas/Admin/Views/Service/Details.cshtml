@@ -1,0 +1,79 @@
+﻿@using LimonDijital.WebApp
+@model LimonDijital.Entities.LimonService
+
+@{
+	ViewBag.Title = "Hizmet Detay";
+}
+
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+			Hizmet Detay
+		</h1>
+		<ol class="breadcrumb">
+			<li>
+				<i class="fa fa-cogs"></i>  <a href="/Admin/Service">Hizmetler</a>
+			</li>
+			<li class="active">
+				<i class="fa fa-info-circle"></i> Hizmet Detay
+			</li>
+		</ol>
+	</div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-1">
+		<dl class="dl-horizontal">
+			<dt>
+				@Html.DisplayNameFor(model => model.Name)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.Name)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.Description)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.Description)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.CreatedOn)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.CreatedOn)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.ModifiedOn)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.ModifiedOn)
+			</dd>
+
+			<dt>
+				@Html.DisplayNameFor(model => model.ModifiedUsername)
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.ModifiedUsername)
+			</dd>
+
+		</dl>
+	</div>
+	<div class="col-sm-6 col-sm-offset-1">
+		@using (Html.BeginForm())
+		{
+			@Html.AntiForgeryToken()
+			@Bootstrap.LinkButton("/Admin/Service/Edit/" + Model.Id, "warning", "", "Edit", "edit", " Düzenle")
+			@Bootstrap.LinkButton("/Admin/Service", "default", "", "Back to list", "arrow-left", " Listeye Geri Dön")
+		}
+	</div>
+</div>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<LimonDijital.Entities.LimonQuestion>
+
+@{
+    ViewBag.Title = "Sorular";
+}
+
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+			Soru Listesi
+		</h1>
+		<ol class="breadcrumb">
+			<li>
+				<i class="fa fa-question-circle"></i>  <a href="/Admin/Question">Sorular</a>
+			</li>
+			<li class="active">
+				<i class="fa fa-list"></i> Soru Listesi
+			</li>
+		</ol>
+	</div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+	<div class="col-md-12">
+		<p>
+			<a href="/Admin/Question/Create" class="btn btn-primary">
+				<span class="glyphicon glyphicon-plus"></span> Yeni Soru Ekle
+			</a>
+		</p>
+
+		<div class="table-responsive">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th width="250">
+							@Html.DisplayNameFor(model => model.Title)
+						</th>
+						<th>
+							@Html.DisplayNameFor(model => model.Text)
+						</th>
+						<th width="100"></th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var item in Model)
+					 {
+								<tr>
+									<td>
+										@Html.DisplayFor(modelItem => item.Title)
+									</td>
+									<td>
+										@Html.DisplayFor(modelItem => item.Text)
+									</td>
+									<td>
+										@Bootstrap.LinkButton("/Admin/Question/Edit/" + @item.Id, "warning", "btn-xs", "Edit", "edit", string.Empty)
+
+										@Bootstrap.LinkButton("/Admin/Question/Details/" + @item.Id, "info", "btn-xs", "Details", "search", string.Empty)
+
+										@Bootstrap.LinkButton("/Admin/Question/Delete/" + @item.Id, "danger", "btn-xs", "Delete", "trash", string.Empty)
+									</td>
+								</tr>
+					 }
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

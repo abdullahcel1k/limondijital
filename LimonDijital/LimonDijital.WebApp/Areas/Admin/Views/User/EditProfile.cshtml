@@ -1,0 +1,109 @@
+﻿@model LimonDijital.Entities.LimonUser
+
+@{
+    ViewBag.Title = "Profil Düzenle";
+}
+
+<link href="~/Content/validation-summary.css" rel="stylesheet" />
+
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+			Profil
+		</h1>
+		<ol class="breadcrumb">
+			<li>
+				<i class="fa fa-user-circle"></i>  <a href="/Admin/Portofilo">Kullanıcılar</a>
+			</li>
+			<li class="active">
+				<i class="fa fa-edit"></i> Düzenle
+			</li>
+		</ol>
+	</div>
+</div>
+<!-- /.row -->
+
+<div class="col-sm-10">
+	<div class="row">
+		<div class="col-sm-10">
+			<h2>@ViewBag.Title</h2>
+			<hr />
+		</div>
+	</div>
+	<div class="row">
+		@using (Html.BeginForm("EditProfile", "User", FormMethod.Post, new { enctype = "multipart/form-data" }))
+		{
+			@Html.AntiForgeryToken()
+			<div class="form-horizontal">
+				<div class="col-sm-4">
+					<img src="~/images/@Model.ProfileImageFilename" class="img-circle" width="128" height="128" />
+					@Html.HiddenFor(model => model.ProfileImageFilename)
+					<br /><br />
+					<input type="file" name="ProfileImage" id="ProfileImage" class="form-control" /><br />
+					<span class="glyphicon glyphicon-info-sign">&nbsp;</span>
+					<span><i>Lütfen jpg, jpeg yada png formatı kullanın.</i></span>
+				</div>
+
+				<div class="col-sm-7">
+
+					@Html.ValidationSummary(false, null, htmlAttributes: new { @class = "col-md-offset-3 col-md-9" })
+					@Html.HiddenFor(model => model.Id)
+
+					<div class="form-group">
+						@Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-3" })
+						<div class="col-md-9">
+							@Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+						</div>
+					</div>
+
+					<div class="form-group">
+						@Html.LabelFor(model => model.Surname, htmlAttributes: new { @class = "control-label col-md-3" })
+						<div class="col-md-9">
+							@Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control" } })
+						</div>
+					</div>
+
+					<div class="form-group">
+						@Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-3" })
+						<div class="col-md-9">
+							@Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+						</div>
+					</div>
+
+					<div class="form-group">
+						@Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-3" })
+						<div class="col-md-9">
+							@Html.EditorFor(model => model.Password, new
+						   {
+							   htmlAttributes = new
+							   {
+								   @class = "form-control",
+								   type = "password"
+							   }
+						   })
+						</div>
+					</div>
+
+					<div class="form-group">
+						@Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-3" })
+						<div class="col-md-9">
+							@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-offset-3 col-md-9">
+							<input type="submit" value="Kaydet" class="btn btn-success" />
+							@Html.ActionLink("İptal", "ShowProfile", null, new { @class = "btn btn-default" })
+						</div>
+					</div>
+
+				</div>
+				<div class="col md-4">
+					&nbsp;
+				</div>
+			</div>
+		}
+	</div>
+</div>

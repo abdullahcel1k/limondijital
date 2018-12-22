@@ -1,0 +1,12 @@
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Entities\bin\Debug\LimonDijital.Entities.dll
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Entities\bin\Debug\LimonDijital.Entities.pdb
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Entities\obj\Debug\LimonDijital.Entities.csprojResolveAssemblyReference.cache
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Entities\obj\Debug\LimonDijital.Entities.csproj.CoreCompileInputs.cache
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Entities\obj\Debug\LimonDijital.Entities.dll
+E:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Entities\obj\Debug\LimonDijital.Entities.pdb
+D:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Entities\bin\Debug\LimonDijital.Entities.dll
+D:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Entities\bin\Debug\LimonDijital.Entities.pdb
+D:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Entities\obj\Debug\LimonDijital.Entities.csprojAssemblyReference.cache
+D:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Entities\obj\Debug\LimonDijital.Entities.csproj.CoreCompileInputs.cache
+D:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Entities\obj\Debug\LimonDijital.Entities.dll
+D:\projelerim\gercek-projeler\LimonDijital\LimonDijital.Entities\obj\Debug\LimonDijital.Entities.pdb

@@ -1,0 +1,59 @@
+﻿@model LimonDijital.Entities.LimonQuestion
+
+@{
+    ViewBag.Title = "Soru Ekle";
+}
+
+<link href="~/Content/validation-summary.css" rel="stylesheet" />
+
+<!-- Page Heading -->
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">
+			Soru Ekle
+		</h1>
+		<ol class="breadcrumb">
+			<li>
+				<i class="fa fa-question-circle"></i>  <a href="/Admin/Question">Sorular</a>
+			</li>
+			<li class="active">
+				<i class="fa fa-plus"></i> Soru Ekle
+			</li>
+		</ol>
+	</div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-1">
+		@using (Html.BeginForm())
+		{
+			@Html.AntiForgeryToken()
+
+			<div class="form-horizontal">
+				@Html.ValidationSummary(false, null,new { @class = "col-sm-offset-3 col-sm-9" })
+
+				<div class="form-group">
+					@Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-sm-3" })
+					<div class="col-sm-9">
+						@Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+					</div>
+				</div>
+
+				<div class="form-group">
+					@Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-sm-3" })
+					<div class="col-sm-9">
+						@Html.TextAreaFor(model => model.Text, new { @class = "form-control" , rows = "3", cols = "30" })
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-offset-3 col-sm-9">
+						@Bootstrap.Button("success", "", "submit", "plus", " Oluştur")
+						@Bootstrap.LinkButton("/Admin/Question", "default", "", "Back to list", "arrow-left", " Listeye Geri Dön")
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+</div>
